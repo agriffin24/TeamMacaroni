@@ -15,7 +15,7 @@ public class lab0 {
      **certain length
      *****************************/
     public lab0(int n){
-	arr = new int[n][n];
+	arr = new int[n][n];	
     }//end constructor(int)
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //toString to display the array
@@ -41,63 +41,78 @@ public class lab0 {
     public String finder(int number) {
 	int row = arr.length - 1;
 	int col = 0;
-	for (int i = 0; i < (2 * arr.length) - 2; i++) { //counter
+	for (int i = 0; i < (2 * arr.length); i++) { //counter
 	    if (arr[row][col] == number) {
-		System.out.println(row);
 		return "(" + row + ", " + col + ")";
 	    }
 	    else{
-		if (row - 1 < 0) {
-		    break;
+		if (arr[row][col] > number) {
+		    row--;
 		}
 		else{
-		    if (arr[row][col] > number) {
-			row--;
+		    if (col + 1 != arr[0].length) {
+			col++;
 		    }
 		    else{
-			if (col + 1 != arr[0].length) {
-			    col++;
-			}
-			else{
-			    break;
-			}
+			break;
 		    }
 		}
 	    }
-	    if (i == 0 || i == (2 * arr.length) - 3){
-		System.out.println(System.currentTimeMillis());
+	}
+   
+    return "(-1, -1)";
+}//end finder(int)
+
+    //populates the array with numbers ascending in each row and column
+    public void populate(){ 
+	int len = this.arr.length;
+	int count = 0;
+	for (int row = 0; row < len; row++){
+	    for (int col = 0; col < len; col++){
+		this.arr[row][col] = count;
+		count ++;
 	    }
 	}
-	return "(-1, -1)";
-    }//end finder(int)
+
+    }
     
-    public static void main (String[] args) {
-	int choice = 1;
-	lab0 pop = new lab0(10000);
-	int k = pop.arr.length;
-	System.out.println(k);
-	System.out.println(System.currentTimeMillis());
-	for (int a = 0; a < pop.arr.length; a++) {
-	    for (int w = 0; w < pop.arr[0].length; w++) {
-		if (w == 0){
-		    pop.arr[a][w] = a;
-		}
-		else{
-		    pop.arr[a][w] = (a + 2 * w);
-		}
-	    }
-	}
-	//System.out.println(pop);
-	try {
-	    choice = (int) (30000 * Math.random());
-	    System.out.println(choice);
-	    System.out.println(System.currentTimeMillis());
-	}
-	catch (Exception e) { }
-	long a = System.currentTimeMillis();
-	System.out.println(pop.finder(choice));
-	long b = System.currentTimeMillis();
-	long x = b - a;
-	System.out.println("(10,000, " + x + ")");
+   public static void main (String[] args) {
+       lab0[] master = new lab0[50]; //creates an array of lab0 instances
+       int counter = 10000;
+       long startT;
+       long endT;
+       long trial1;
+       long trial2;
+       long trial3;
+       long avg;
+       
+       for (int i = 0; i < master.length; i++){ 
+	   master[i] = new lab0(counter); //instantiates lab0 with sidelength counter
+	   master[i].populate();
+	   
+	   startT = System.nanoTime();
+	   master[i].finder(counter-1);
+	   endT = System.nanoTime();
+	   trial1 = endT-startT;
+	   
+	   startT = System.nanoTime();
+	   master[i].finder(counter-1);
+	   endT = System.nanoTime();
+	   trial2 = endT-startT;
+
+	   startT = System.nanoTime();
+	   master[i].finder(counter-1);
+	   endT = System.nanoTime();
+	   trial3 = endT-startT;
+	   
+	   avg = (trial1 + trial2 + trial3)/3;
+	   System.out.println(counter + "," +  avg);
+	   counter += 50;
+       }
+
+       
+       
+
+		
     }//end main()
 }//end MatrixFinder
