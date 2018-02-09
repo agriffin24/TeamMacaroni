@@ -46,3 +46,4 @@ We got repeating spikes in the data whose peaks are at 2700, 4150, 5500, 6650, 7
 
 #### Conclusion
 Ignoring the large spikes, our data resembles a line, as shown with the trend line.
+Hence our final conclusion is that this algorithm runs in linear time O(n), and the spikes are due to unexplained phenomena.
