@@ -91,15 +91,15 @@ public class MatrixFinder {
 	int row = arr.length - 1;
 	
 	int col = 0;
-	double Stime = System.currentTimeMillis();
-	System.out.println("Start Time: " + Stime);
+	//	long Stime = System.currentTimeMillis();
+	//	System.out.println("Start Time: " + Stime);
 	
 	for (int i = 0; i < (2 * arr.length)-1; i++) { //counter
 	    
 	    if (arr[row][col] == number) {
-		System.out.println("Time taken: " + (System.currentTimeMillis() - Stime));
-		
-		return "(" + row + ", " + col + ")";
+		//	System.out.println("Time taken: " + (System.currentTimeMillis() - Stime));
+		return ("Done");
+		//	return "(" + row + ", " + col + ")";
 	    
 	    }else{
 		
@@ -132,7 +132,7 @@ public class MatrixFinder {
 	    }
 	
 	}
-	System.out.println(System.currentTimeMillis() - Stime);
+	//	System.out.println(System.currentTimeMillis() - Stime);
 	
 	return "(-1, -1)";
     
@@ -163,43 +163,51 @@ public class MatrixFinder {
 	
 	int choice = 1;
 
-	int numChoice = 200;
+	//	int numChoice = 200;
 
 	MatrixFinder nArr = new MatrixFinder(200);
 
-	for (int i = 0; i < 100; i++ ) {
+	for (int i = 3; i < 13; i++ ) {
+	    nArr = new MatrixFinder(1000 + (1000 * i));
 
-	    try {
-		System.out.print("Array Size: ");
-		numChoice = Keyboard.readInt();
+	    // try {
+	    // 	System.out.print("Array Size: ");
+	    // 	numChoice = Keyboard.readInt();
 
-		while (numChoice < 0) {
+	    // 	while (numChoice < 0) {
 
-		    System.out.println("Enter Valid Num\n");
+	    // 	    System.out.println("Enter Valid Num\n");
 
-		}
+	    // 	}
 
-		nArr = new MatrixFinder(numChoice);
+	    // 	nArr = new MatrixFinder(numChoice);
 
-	    }
+	    // }
 
-	    catch (Exception e) { }
+	    // catch (Exception e) { }
 
 	    nArr.pop();
 	
-	    System.out.println(nArr);
-	
-	    try {
+	    //  System.out.println(nArr);
+
+	    choice = nArr.arr[10 * i][60 * i];
+	    // try {
 	    
-		System.out.println("What number? ");
+	    // 	System.out.println("What number? ");
 	    
-		choice = Keyboard.readInt();
+	    // 	choice = Keyboard.readInt();
 	
-	    }
+	    // }
 	
-	    catch (Exception e) { }
-	
+	    // catch (Exception e) { }
+	    long Stime = System.currentTimeMillis();
+	    System.out.println(Stime);
 	    System.out.println(nArr.finder(choice));
+	    long ElapsedTime = System.currentTimeMillis();
+	    System.out.println(ElapsedTime);
+	    long diffTime = ElapsedTime - Stime;
+	    System.out.println(diffTime);
+	    System.out.println(diffTime + "\n=====================\n");
 
 	}
     }//end main()
