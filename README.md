@@ -45,7 +45,8 @@ Our data, when graphed, resembles a line with small slope, but with spikes stick
 We got repeating spikes in the data whose peaks are at 2700, 4150, 5500, 6650, 7850, 8650, 9150, 9600, 10000. The interesting thing about these peaks is that the difference between peaks is always decreasing from 1450 to 1350 to 1150 and so on. It was especially surprising to see that the peaks at which the average time was the highest were not in any form of an arithmetic/linear progression.
 
 #### Conclusion
-Ignoring the large spikes, our data resembles a line, as shown with the trend line.
+Ignoring the large spikes, our data resembles a line, as shown with the trend line in the graphs.
 This indicates that the size of the matrix (n) is directly proportional to the algorithms runtime.
+
 However, it is important to note we do have unexplained spikes in runtime for seemingly unconnected values.
 Hence our final conclusion is that this algorithm runs in linear time O(n), and the spikes are due to unexplained phenomena.
