@@ -38,7 +38,7 @@ We decided to always test the worst case for each n, because the worst case of a
 
 #### Results 
 Our data, when graphed, resembles a line with small slope, but with spikes sticking up from it.
-
+![](Screenshot_20180209-135057~2.png)
 We got repeating spikes in the data whose peaks are at 2700, 4150, 5500, 6650, 7850, 8650, 9150, 9600, 10000. The interesting thing about these peaks is that the difference between peaks is always decreasing from 1450 to 1350 to 1150 and so on. It was especially surprising to see that the peaks at which the average time was the highest were not in any form of an arithmetic/linear progression.
 
 #### Conclusion
